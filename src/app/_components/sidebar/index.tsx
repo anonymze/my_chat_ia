@@ -1,7 +1,6 @@
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenuButton, SidebarRail, } from "@/components/ui/sidebar";
-import { SiGithub } from "@icons-pack/react-simple-icons";
-import { HStack, VStack } from "@/components/ui/stack";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar";
 import { api, HydrateClient } from "@/trpc/server";
+import { HStack } from "@/components/ui/stack";
 import { Logo } from "@/components/ui/logo";
 import { auth } from "@/server/auth";
 import * as React from "react";
