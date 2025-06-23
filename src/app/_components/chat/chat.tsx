@@ -80,8 +80,11 @@ export const ChatContent = ({
                 }}
                 exit={{ opacity: 0, marginBottom: 0 }}
                 transition={{
-                  enter: { delay: 0.1, duration: 0.3 },
-                  exit: { delay: 0, duration: 0.05 },
+                  duration: 0.3,
+                  delay: 0.1
+                }}
+                whileInView={{
+                  transition: { duration: 0.3, delay: 0.1 }
                 }}
                 className="flex flex-col items-center gap-4 pt-2 text-center"
               >
@@ -135,8 +138,8 @@ export const ChatContent = ({
                 }}
                 exit={{ opacity: 0, height: 0, marginTop: 0 }}
                 transition={{
-                  enter: { delay: 0.4, duration: 0.3 },
-                  exit: { delay: 0, duration: 0.1 },
+                  duration: 0.3,
+                  delay: 0.4,
                 }}
                 className="overflow-hidden"
               >

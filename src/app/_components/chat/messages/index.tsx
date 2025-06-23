@@ -1,9 +1,11 @@
+import { useChatContext } from "@/app/_contexts/chat-context";
+import { useMessages } from "@/app/_hooks/use-messages";
 import { memo, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import equal from "fast-deep-equal";
+
 import { PreviewMessage, ThinkingMessage } from "./message";
-import { useMessages } from "@/app/_hooks/use-messages";
-import { useChatContext } from "@/app/_contexts/chat-context";
+
 
 interface Props {
   chatId: string;
