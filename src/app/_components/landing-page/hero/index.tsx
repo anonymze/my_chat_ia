@@ -19,21 +19,20 @@ export const HeroSection: React.FC = () => {
           >
             <VStack className="items-center md:items-end">
               <Badge variant="primary" className="text-lg">
-                T3 Cloneathon Project
+                Interface de chat IA
               </Badge>
               <h1 className="from-foreground to-foreground/80 bg-gradient-to-r bg-clip-text text-center text-4xl leading-tight font-bold text-transparent md:text-right md:text-6xl">
-                Open Source
+                Tous les modèles IA
                 <br />
                 <span className="from-primary to-primary/70 bg-gradient-to-r bg-clip-text text-center text-transparent md:text-right">
-                  Generative UI Chatbot
+                  Et encore plus.
                 </span>
               </h1>
             </VStack>
 
             <p className="text-muted-foreground max-w-lg text-center text-lg leading-relaxed md:text-right md:text-xl">
-              Configure a custom chatbot with content-rich, togglable toolkits.
-              100% type-safe communication between server tools and client
-              rendering.
+              Un outil 100% customisable pour nos besoins.
+              Vous voulez changer une fonctionnalité ? Demandez le !
             </p>
 
             {/* <div className="flex flex-col-reverse gap-4 sm:flex-row">
@@ -69,7 +68,7 @@ export const HeroSection: React.FC = () => {
             className="flex h-full flex-1 items-center justify-center"
           >
             <div className="size-full w-full overflow-y-hidden rounded-none p-2 pr-0 md:border-l md:py-16 md:pl-14">
-              <ToolkitDemoList />
+              {/* <ToolkitDemoList /> */}
             </div>
           </MotionContainer>
         </div>

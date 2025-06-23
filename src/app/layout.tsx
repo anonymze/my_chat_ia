@@ -1,22 +1,20 @@
-import { Space_Grotesk } from "next/font/google";
-import { JetBrains_Mono } from "next/font/google";
-import { cookies } from "next/headers";
-
-import { TRPCReactProvider } from "@/trpc/react";
-
-import { Toaster } from "@/components/ui/sonner";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-
-import { AppSidebar } from "./_components/sidebar";
-import { Navbar } from "./_components/navbar";
-import { ThemeProvider } from "./_contexts/theme";
-
-import type { Metadata } from "next";
-
 import "@/styles/globals.css";
 
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { JetBrains_Mono } from "next/font/google";
+import { TRPCReactProvider } from "@/trpc/react";
+import { Toaster } from "@/components/ui/sonner";
+import { Space_Grotesk } from "next/font/google";
+import { cookies } from "next/headers";
+import type { Metadata } from "next";
+
+import { AppSidebar } from "./_components/sidebar";
+import { ThemeProvider } from "./_contexts/theme";
+import { Navbar } from "./_components/navbar";
+
+
 export const metadata: Metadata = {
-  title: "Toolkit.dev",
+  title: "m-IA-ou",
   description: "A highly-configurable open-source chat client",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };

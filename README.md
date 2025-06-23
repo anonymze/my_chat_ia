@@ -1,5 +1,8 @@
 # [Toolkit.dev](https://toolkit.dev)
 
+npx vercel ls
+npx vercel logs https://my-chat-bybahh87a-yanns-projects-3efb5921.vercel.app
+
 ![Banner Image](/banner.png)
 
 An extensible AI chat application with Generative UI built for the **T3 Cloneathon** using the [T3 Stack](https://create.t3.gg/). Toolkit.dev features a powerful toolkit system that allow users to toggle sets of AI tools to interact with external services, search the web, manage files, and much more.

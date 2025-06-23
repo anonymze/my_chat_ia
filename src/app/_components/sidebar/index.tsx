@@ -1,4 +1,4 @@
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail, } from "@/components/ui/sidebar";
 import { api, HydrateClient } from "@/trpc/server";
 import { HStack } from "@/components/ui/stack";
 import { Logo } from "@/components/ui/logo";
@@ -38,7 +38,7 @@ export async function AppSidebar({
             <HStack className="items-center group-data-[collapsible=icon]:justify-center">
               <Logo className="size-6 group-data-[collapsible=icon]:mx-auto" />
               <h1 className="shimmer-text overflow-hidden text-xl font-bold whitespace-nowrap group-data-[collapsible=icon]:hidden">
-                Toolkit.dev
+                m-IA-ou
               </h1>
             </HStack>
           </Link>
@@ -82,6 +82,5 @@ export async function AppSidebar({
         <SidebarRail />
       </Sidebar>
     </HydrateClient>
-    
   );
 }

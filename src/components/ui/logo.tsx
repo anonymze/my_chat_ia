@@ -1,7 +1,7 @@
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 import React from "react";
 
-import Image from "next/image";
-import { cn } from "@/lib/utils";
 
 interface Props {
   className?: string;
@@ -12,14 +12,14 @@ export const Logo: React.FC<Props> = ({ className }) => {
     <>
       <Image
         src="/logo/light.svg"
-        alt="Toolkit.dev"
+        alt="m-IA-ou"
         width={100}
         height={100}
         className={cn(className, "dark:hidden")}
       />
       <Image
         src="/logo/dark.svg"
-        alt="Toolkit.dev"
+        alt="m-IA-ou"
         width={100}
         height={100}
         className={cn(className, "hidden dark:block")}

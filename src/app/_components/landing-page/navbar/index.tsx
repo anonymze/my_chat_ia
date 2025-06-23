@@ -1,8 +1,10 @@
-import { Logo } from "@/components/ui/logo";
-import { HStack } from "@/components/ui/stack";
-import { ColorModeToggle } from "../../navbar/color-mode-toggle";
 import { Button } from "@/components/ui/button";
+import { HStack } from "@/components/ui/stack";
+import { Logo } from "@/components/ui/logo";
+
+import { ColorModeToggle } from "../../navbar/color-mode-toggle";
 import { AuthModal } from "../auth-modal";
+
 
 export const Navbar = () => {
   return (
@@ -11,12 +13,12 @@ export const Navbar = () => {
         <HStack>
           <Logo className="size-6" />
           <h1 className="shimmer-text overflow-hidden text-lg font-bold whitespace-nowrap">
-            Toolkit.dev
+            m-IA-ou
           </h1>
         </HStack>
         <HStack>
           <AuthModal>
-            <Button className="user-message">Try it Out</Button>
+            <Button className="user-message">Se connecter</Button>
           </AuthModal>
           <ColorModeToggle />
         </HStack>
