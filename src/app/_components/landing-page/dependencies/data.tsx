@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import type { Dependency } from "./types";
 
+
 // Project dependencies from package.json
 export const dependenciesData = [
   // Core Framework & Libraries
