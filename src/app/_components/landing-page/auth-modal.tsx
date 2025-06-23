@@ -19,7 +19,7 @@ export const AuthModal = ({ children }: AuthModalProps) => {
           <Logo className="size-16" />
           <VStack>
             <DialogTitle className="text-primary text-xl">
-              Se connecter à to m-IA-ou
+              Se connecter à m-IA-ou
             </DialogTitle>
             <DialogDescription className="hidden">
               Sign in to your account to get started with Toolkit.

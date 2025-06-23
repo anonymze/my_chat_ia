@@ -48,7 +48,7 @@ export const Authenticated: React.FC<Props> = ({ session }) => {
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => signOut()}>
           <LogOut />
-          Sign Out
+          Se déconnecter
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
