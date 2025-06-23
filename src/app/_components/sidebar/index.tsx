@@ -83,5 +83,6 @@ export async function AppSidebar({
         <SidebarRail />
       </Sidebar>
     </HydrateClient>
+    
   );
 }
