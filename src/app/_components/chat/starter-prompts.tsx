@@ -412,8 +412,8 @@ export const StarterPrompts = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{
-              enter: { delay: 0.1 + index * 0.1 },
-              exit: { delay: 0, duration: 0.1 },
+              duration: 0.1,
+              delay: 0.1 + index * 0.1,
             }}
             onClick={() => handlePromptClick(prompt.prompt)}
             className="hover:bg-muted/80 text-muted-foreground hover:text-foreground group relative cursor-pointer rounded-xl border p-2 text-left text-sm transition-colors"
