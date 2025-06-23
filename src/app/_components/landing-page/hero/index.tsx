@@ -68,7 +68,7 @@ export const HeroSection: React.FC = () => {
             className="flex h-full flex-1 items-center justify-center"
           >
             <div className="size-full w-full overflow-y-hidden rounded-none p-2 pr-0 md:border-l md:py-16 md:pl-14">
-              <ToolkitDemoList />
+              {/* <ToolkitDemoList /> */}
             </div>
           </MotionContainer>
         </div>
