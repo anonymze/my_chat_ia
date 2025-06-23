@@ -1,9 +1,11 @@
-import { redirect, notFound } from "next/navigation";
-import { auth } from "@/server/auth";
-import { createCaller } from "@/server/api/root";
 import { createTRPCContext } from "@/server/api/trpc";
+import { redirect, notFound } from "next/navigation";
+import { createCaller } from "@/server/api/root";
 import { headers } from "next/headers";
+import { auth } from "@/server/auth";
+
 import { AdminPanel } from "./_components/admin-panel";
+
 
 export default async function AdminPage() {
   // Check authentication

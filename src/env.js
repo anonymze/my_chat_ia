@@ -1,6 +1,7 @@
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
+
 const createAuthSchema = () => {
   const authSchema = {};
 
@@ -116,6 +117,7 @@ export const env = createEnv({
       .enum(["development", "test", "production"])
       .default("development"),
     OPENROUTER_API_KEY: z.string(),
+    REDIS_URL: z.string().optional(),
     EXA_API_KEY: z.string().optional(),
     MEM0_API_KEY: z.string().optional(),
     E2B_API_KEY: z.string().optional(),
@@ -142,6 +144,7 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
     OPENROUTER_API_KEY: process.env.OPENROUTER_API_KEY,
+    REDIS_URL: process.env.REDIS_URL,
     EXA_API_KEY: process.env.EXA_API_KEY,
     MEM0_API_KEY: process.env.MEM0_API_KEY,
     E2B_API_KEY: process.env.E2B_API_KEY,
