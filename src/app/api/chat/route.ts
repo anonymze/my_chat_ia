@@ -1,39 +1,21 @@
-import { after } from "next/server";
-
-import {
-  appendClientMessage,
-  appendResponseMessages,
-  convertToCoreMessages,
-  createDataStream,
-  smoothStream,
-  tool,
-} from "ai";
-
+import { appendClientMessage, appendResponseMessages, convertToCoreMessages, createDataStream, smoothStream, tool, } from "ai";
+import type { CoreAssistantMessage, CoreToolMessage, Tool, UIMessage, } from "ai";
 import { createResumableStreamContext } from "resumable-stream";
-
+import type { ResumableStreamContext } from "resumable-stream";
+import { getServerToolkit } from "@/toolkits/toolkits/server";
+import { generateText, streamText } from "@/ai/generate";
 import { differenceInSeconds } from "date-fns";
-
+import { languageModels } from "@/ai/models";
+import { ChatSDKError } from "@/lib/errors";
+import type { Chat } from "@prisma/client";
+import { generateUUID } from "@/lib/utils";
+import { openai } from "@ai-sdk/openai";
 import { auth } from "@/server/auth";
 import { api } from "@/trpc/server";
+import { after } from "next/server";
 
 import { postRequestBodySchema, type PostRequestBody } from "./schema";
 
-import { generateText, streamText } from "@/ai/generate";
-import { generateUUID } from "@/lib/utils";
-
-import { ChatSDKError } from "@/lib/errors";
-
-import type { ResumableStreamContext } from "resumable-stream";
-import type {
-  CoreAssistantMessage,
-  CoreToolMessage,
-  Tool,
-  UIMessage,
-} from "ai";
-import type { Chat } from "@prisma/client";
-import { openai } from "@ai-sdk/openai";
-import { getServerToolkit } from "@/toolkits/toolkits/server";
-import { languageModels } from "@/ai/models";
 
 export const maxDuration = 60;
 
@@ -46,6 +28,8 @@ function getStreamContext() {
         waitUntil: after,
       });
     } catch (error: unknown) {
+      console.log(error);
+
       if (error instanceof Error && error.message.includes("REDIS_URL")) {
         console.log(
           " > Resumable streams are disabled due to missing REDIS_URL",
