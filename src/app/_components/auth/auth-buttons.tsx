@@ -23,7 +23,7 @@ export const AuthButtons = ({ providers, redirect }: AuthButtonsProps) => {
           onClick={() => signIn(provider.id, { redirectTo: redirect })}
         >
           <AuthProviderIcon provider={provider.name} />
-          Sign in with {provider.name}
+          Se connecter avec {provider.name}
         </Button>
       ))}
     </div>
