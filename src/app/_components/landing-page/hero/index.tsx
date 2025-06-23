@@ -1,12 +1,14 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import { ToolkitDemoList } from "./toolkit-demo-list";
 import { SiGithub } from "@icons-pack/react-simple-icons";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { VStack } from "@/components/ui/stack";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight } from "lucide-react";
+import React from "react";
+
+import { ToolkitDemoList } from "./toolkit-demo-list";
 import { MotionContainer } from "./motion-container";
 import { AuthModal } from "../auth-modal";
+
 
 export const HeroSection: React.FC = () => {
   return (
@@ -38,7 +40,7 @@ export const HeroSection: React.FC = () => {
               rendering.
             </p>
 
-            <div className="flex flex-col-reverse gap-4 sm:flex-row">
+            {/* <div className="flex flex-col-reverse gap-4 sm:flex-row">
               <Button
                 variant="outline"
                 size="lg"
@@ -58,7 +60,7 @@ export const HeroSection: React.FC = () => {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </AuthModal>
-            </div>
+            </div> */}
           </MotionContainer>
         </div>
 

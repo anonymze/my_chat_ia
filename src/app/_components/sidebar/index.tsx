@@ -1,25 +1,17 @@
-import * as React from "react";
-
-import { auth } from "@/server/auth";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenuButton, SidebarRail, } from "@/components/ui/sidebar";
+import { SiGithub } from "@icons-pack/react-simple-icons";
+import { HStack, VStack } from "@/components/ui/stack";
 import { api, HydrateClient } from "@/trpc/server";
+import { Logo } from "@/components/ui/logo";
+import { auth } from "@/server/auth";
+import * as React from "react";
+import Link from "next/link";
 
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarMenuButton,
-  SidebarRail,
-} from "@/components/ui/sidebar";
-
-import { NavMain } from "./main";
+import { WorkbenchSelect } from "./workbench-select";
 import { NavChats } from "./chats";
 import { NavUser } from "./user";
-import { Logo } from "@/components/ui/logo";
-import Link from "next/link";
-import { HStack, VStack } from "@/components/ui/stack";
-import { SiGithub } from "@icons-pack/react-simple-icons";
-import { WorkbenchSelect } from "./workbench-select";
+import { NavMain } from "./main";
+
 
 export async function AppSidebar({
   ...props
@@ -60,7 +52,7 @@ export async function AppSidebar({
           <NavChats />
         </SidebarContent>
         <SidebarFooter className="flex flex-col gap-2 p-3 group-data-[collapsible=icon]:p-2">
-          <SidebarMenuButton
+          {/* <SidebarMenuButton
             asChild
             className="hover:bg-sidebar-accent/50 h-fit w-full rounded-lg p-2 transition-colors group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-2"
           >
@@ -79,7 +71,7 @@ export async function AppSidebar({
                 </p>
               </VStack>
             </Link>
-          </SidebarMenuButton>
+          </SidebarMenuButton> */}
           <NavUser
             user={{
               name: session.user.name ?? "User",
