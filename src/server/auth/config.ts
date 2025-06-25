@@ -1,10 +1,12 @@
+import type { DefaultSession, NextAuthConfig } from "next-auth";
 import { PrismaAdapter } from "@auth/prisma-adapter";
+import { db } from "@/server/db";
 
 import { providers } from "./providers";
 
-import { db } from "@/server/db";
 
-import type { DefaultSession, NextAuthConfig } from "next-auth";
+const ALLOWED_EMAILS = ["anodevfr@gmail.com", "ledjant@gmail.co"];
+
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -47,7 +49,14 @@ export const authConfig = {
         id: user.id,
       },
     }),
-    async signIn({ account }) {
+    async signIn({ account, user }) {
+
+      if (user.email) {
+        if (!ALLOWED_EMAILS.includes(user.email)) {
+          return false;
+        }
+      }
+
       if (account) {
         const existingAccount = await db.account.findUnique({
           where: {
