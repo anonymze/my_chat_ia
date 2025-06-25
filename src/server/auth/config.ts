@@ -5,7 +5,7 @@ import { db } from "@/server/db";
 import { providers } from "./providers";
 
 
-const ALLOWED_EMAILS = ["anodevfr@gmail.com", "ledjant@gmail.co"];
+const ALLOWED_EMAILS = ["anodevfr@gmail.com", "ledjant@gmail.com"];
 
 
 /**
