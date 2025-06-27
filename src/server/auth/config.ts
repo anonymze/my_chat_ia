@@ -4,9 +4,11 @@ import { db } from "@/server/db";
 
 import { providers } from "./providers";
 
-
-const ALLOWED_EMAILS = ["anodevfr@gmail.com", "ledjant@gmail.com"];
-
+const ALLOWED_EMAILS = [
+  "anodevfr@gmail.com",
+  "ledjant@gmail.com",
+  "meysen.michael@gmail.com",
+];
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -50,7 +52,6 @@ export const authConfig = {
       },
     }),
     async signIn({ account, user }) {
-
       if (user.email) {
         if (!ALLOWED_EMAILS.includes(user.email)) {
           return false;
