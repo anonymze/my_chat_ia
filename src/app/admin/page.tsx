@@ -6,13 +6,12 @@ import { auth } from "@/server/auth";
 
 import { AdminPanel } from "./_components/admin-panel";
 
-
 export default async function AdminPage() {
   // Check authentication
   const session = await auth();
 
   if (!session) {
-    redirect("/login?redirect=/admin");
+    redirect("/login?redirect=/");
   }
 
   // Create TRPC context and caller for server-side calls

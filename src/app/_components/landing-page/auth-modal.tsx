@@ -1,10 +1,16 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger, } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { providers } from "@/server/auth/providers";
 import { VStack } from "@/components/ui/stack";
 import { Logo } from "@/components/ui/logo";
 
 import { AuthButtons } from "../auth/auth-buttons";
-
 
 interface AuthModalProps {
   children: React.ReactNode;

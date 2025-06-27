@@ -20,7 +20,7 @@ export const NavMain = () => {
 
   const items = [
     {
-      title: "New Chat",
+      title: "new Chat",
       url: workbenchId ? `/workbench/${workbenchId}` : "/",
       icon: Edit,
     },

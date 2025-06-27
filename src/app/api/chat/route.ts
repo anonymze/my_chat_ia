@@ -1,5 +1,17 @@
-import { appendClientMessage, appendResponseMessages, convertToCoreMessages, createDataStream, smoothStream, tool, } from "ai";
-import type { CoreAssistantMessage, CoreToolMessage, Tool, UIMessage, } from "ai";
+import {
+  appendClientMessage,
+  appendResponseMessages,
+  convertToCoreMessages,
+  createDataStream,
+  smoothStream,
+  tool,
+} from "ai";
+import type {
+  CoreAssistantMessage,
+  CoreToolMessage,
+  Tool,
+  UIMessage,
+} from "ai";
 import { createResumableStreamContext } from "resumable-stream";
 import type { ResumableStreamContext } from "resumable-stream";
 import { getServerToolkit } from "@/toolkits/toolkits/server";
@@ -15,7 +27,6 @@ import { api } from "@/trpc/server";
 import { after } from "next/server";
 
 import { postRequestBodySchema, type PostRequestBody } from "./schema";
-
 
 export const maxDuration = 60;
 
@@ -87,7 +98,7 @@ export async function POST(request: Request) {
       await api.chats.createChat({
         id,
         userId: session.user.id,
-        title: "New Chat", // Temporary title
+        title: "new chat", // Temporary title
         visibility: selectedVisibilityType,
         workbenchId,
       });

@@ -39,6 +39,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { api } from "@/trpc/react";
 
 interface Props {
   chatId: string;
@@ -64,6 +65,8 @@ const PureMultimodalInput: React.FC<Props> = ({
     selectedChatModel,
     workbench,
   } = useChatContext();
+
+  const utils = api.useUtils();
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const { width } = useWindowSize();
@@ -168,6 +171,14 @@ const PureMultimodalInput: React.FC<Props> = ({
       experimental_attachments: attachments,
     });
 
+    console.log("LOG");
+    console.log(workbench);
+
+    // Invalidate chat list immediately to show the new chat in sidebar
+    void utils.chats.getChats.invalidate({
+      workbenchId: workbench?.id ?? null,
+    });
+
     setAttachments([]);
     setLocalStorageInput("");
     resetHeight();
@@ -185,6 +196,7 @@ const PureMultimodalInput: React.FC<Props> = ({
     width,
     chatId,
     workbench,
+    utils,
   ]);
 
   const uploadFile = useCallback(

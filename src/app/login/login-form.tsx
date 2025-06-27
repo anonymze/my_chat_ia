@@ -30,13 +30,13 @@ export function LoginForm({
           <Logo className="size-16" />
           <VStack className="gap-1">
             <h1 className="text-primary text-2xl font-bold">
-              Welcome to Toolkit
+              Bievenue sur m-IA-ou
             </h1>
           </VStack>
         </VStack>
         <Card className="w-full gap-4 p-4">
           <p className="text-muted-foreground text-center text-sm">
-            Sign in with your preferred account to continue
+            Connecte toi avec ton compte pour continuer
           </p>
           <AuthButtons providers={providers} redirect={redirect ?? undefined} />
         </Card>

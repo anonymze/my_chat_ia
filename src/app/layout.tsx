@@ -12,7 +12,6 @@ import { AppSidebar } from "./_components/sidebar";
 import { ThemeProvider } from "./_contexts/theme";
 import { Navbar } from "./_components/navbar";
 
-
 export const metadata: Metadata = {
   title: "m-IA-ou",
   description: "A highly-configurable open-source chat client",
@@ -38,7 +37,7 @@ export default async function RootLayout({
 
   return (
     <html
-      lang="en"
+      lang="fr"
       className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} ${initialTheme === "dark" ? "dark" : ""}`}
     >
       <body>
