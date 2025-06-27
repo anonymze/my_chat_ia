@@ -1,4 +1,10 @@
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail, } from "@/components/ui/sidebar";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarRail,
+} from "@/components/ui/sidebar";
 import { api, HydrateClient } from "@/trpc/server";
 import { HStack } from "@/components/ui/stack";
 import { Logo } from "@/components/ui/logo";
@@ -10,7 +16,6 @@ import { WorkbenchSelect } from "./workbench-select";
 import { NavChats } from "./chats";
 import { NavUser } from "./user";
 import { NavMain } from "./main";
-
 
 export async function AppSidebar({
   ...props

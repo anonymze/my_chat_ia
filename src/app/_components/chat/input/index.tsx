@@ -40,6 +40,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { api } from "@/trpc/react";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface Props {
   chatId: string;
@@ -170,9 +171,6 @@ const PureMultimodalInput: React.FC<Props> = ({
     handleSubmit(undefined, {
       experimental_attachments: attachments,
     });
-
-    console.log("LOG");
-    console.log(workbench);
 
     // Invalidate chat list immediately to show the new chat in sidebar
     void utils.chats.getChats.invalidate({

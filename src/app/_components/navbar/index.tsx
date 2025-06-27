@@ -4,6 +4,7 @@ import { AccountButton } from "./account-button";
 import { ColorModeToggle } from "./color-mode-toggle";
 import { HStack } from "@/components/ui/stack";
 import { auth } from "@/server/auth";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 export const Navbar = async () => {
   const session = await auth();
@@ -17,10 +18,11 @@ export const Navbar = async () => {
       <HStack>
         <Logo className="size-6" />
         <h1 className="overflow-hidden text-lg font-bold whitespace-nowrap">
-          Toolkit.dev
+          m-IA-ou
         </h1>
       </HStack>
       <HStack>
+        <SidebarTrigger />
         <AccountButton />
         <ColorModeToggle />
       </HStack>
