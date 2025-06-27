@@ -38,7 +38,7 @@ export async function AppSidebar({
         <SidebarHeader className="border-sidebar-border border-b p-3 group-data-[collapsible=icon]:p-2">
           <Link
             href="/"
-            className="hover:bg-sidebar-accent/50 rounded-lg p-2 transition-colors group-data-[collapsible=icon]:flex group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-2"
+            className="hover:bg-sidebar-accent/50 w-fit rounded-lg p-2 transition-colors group-data-[collapsible=icon]:flex group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-2"
           >
             <HStack className="items-center group-data-[collapsible=icon]:justify-center">
               <Logo className="size-6 group-data-[collapsible=icon]:mx-auto" />
