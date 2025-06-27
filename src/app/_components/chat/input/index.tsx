@@ -41,6 +41,7 @@ import {
 } from "@/components/ui/tooltip";
 import { api } from "@/trpc/react";
 import { useQueryClient } from "@tanstack/react-query";
+import { Credits } from "./credits";
 
 interface Props {
   chatId: string;
@@ -461,6 +462,7 @@ const PureMultimodalInput: React.FC<Props> = ({
             />
             <ModelSelect />
             <ToolsSelect />
+            <Credits />
           </div>
 
           <div className="flex items-center">

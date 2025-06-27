@@ -81,10 +81,10 @@ export const ChatContent = ({
                 exit={{ opacity: 0, marginBottom: 0 }}
                 transition={{
                   duration: 0.3,
-                  delay: 0.1
+                  delay: 0.1,
                 }}
                 whileInView={{
-                  transition: { duration: 0.3, delay: 0.1 }
+                  transition: { duration: 0.3, delay: 0.1 },
                 }}
                 className="flex flex-col items-center gap-4 pt-2 text-center"
               >
@@ -126,7 +126,7 @@ export const ChatContent = ({
           )}
 
           {/* Starter Prompts - only shown when no messages */}
-          <AnimatePresence>
+          {/* <AnimatePresence>
             {!hasMessages && !hasInitialMessages && (
               <motion.div
                 initial={{ opacity: 0, marginTop: "1rem", height: "auto" }}
@@ -146,7 +146,7 @@ export const ChatContent = ({
                 {!hasMessages && <StarterPrompts />}
               </motion.div>
             )}
-          </AnimatePresence>
+          </AnimatePresence> */}
         </motion.div>
       </div>
       {welcome && <WelcomeDialog />}
