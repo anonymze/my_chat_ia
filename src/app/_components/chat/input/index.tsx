@@ -38,7 +38,7 @@ import { api } from "@/trpc/react";
 import type { UseChatHelpers } from "@ai-sdk/react";
 import type { File as DbFile } from "@prisma/client";
 import type { Attachment } from "ai";
-import SpeechToText from "../../speech-to-text";
+import SpeechToText from "../../speech/speech-to-text";
 import { Credits } from "./credits";
 import { ModelSelect } from "./model-select";
 import { ToolsSelect } from "./tools";
@@ -423,13 +423,14 @@ const PureMultimodalInput: React.FC<Props> = ({
       <div className="bg-muted focus-within:ring-ring relative rounded-2xl transition-all duration-200 focus-within:ring-2">
         <div className="flex flex-row items-center gap-2">
           <Textarea
+            id="prompt"
             data-testid="multimodal-input"
             ref={textareaRef}
             placeholder="Send a message..."
             value={input}
             onChange={handleInput}
             className={cn(
-              "h-auto max-h-[calc(75dvh-4rem)] min-h-[48px] resize-none overflow-hidden border-0 bg-transparent py-3 pr-0 pl-4 !text-base shadow-none focus-visible:ring-0",
+              "h-auto max-h-[calc(75dvh-4rem)] min-h-[48px] resize-none overflow-hidden border-0 bg-transparent px-4 py-3 !text-base shadow-none focus-visible:ring-0",
               className,
             )}
             rows={2}
