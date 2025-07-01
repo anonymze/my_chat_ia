@@ -1,15 +1,15 @@
 "use client";
 
 import React, {
-  useRef,
-  useEffect,
-  useState,
-  useCallback,
   memo,
+  useCallback,
+  useEffect,
   useMemo,
+  useRef,
+  useState,
 } from "react";
 
-import { ArrowUp, Paperclip, Octagon } from "lucide-react";
+import { ArrowUp, Octagon, Paperclip } from "lucide-react";
 
 import { AnimatePresence, motion } from "motion/react";
 
@@ -26,13 +26,8 @@ import { PreviewAttachment } from "../preview-attachment";
 
 import { cn } from "@/lib/utils";
 
-import { ModelSelect } from "./model-select";
-import { useChatContext } from "@/app/_contexts/chat-context";
-import type { Attachment } from "ai";
-import type { UseChatHelpers } from "@ai-sdk/react";
-import { ToolsSelect } from "./tools";
-import type { File as DbFile } from "@prisma/client";
 import { LanguageModelCapability } from "@/ai/types";
+import { useChatContext } from "@/app/_contexts/chat-context";
 import {
   Tooltip,
   TooltipContent,
@@ -40,8 +35,13 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { api } from "@/trpc/react";
-import { useQueryClient } from "@tanstack/react-query";
+import type { UseChatHelpers } from "@ai-sdk/react";
+import type { File as DbFile } from "@prisma/client";
+import type { Attachment } from "ai";
+import SpeechToText from "../../speech-to-text";
 import { Credits } from "./credits";
+import { ModelSelect } from "./model-select";
+import { ToolsSelect } from "./tools";
 
 interface Props {
   chatId: string;
@@ -421,37 +421,40 @@ const PureMultimodalInput: React.FC<Props> = ({
       )}
 
       <div className="bg-muted focus-within:ring-ring relative rounded-2xl transition-all duration-200 focus-within:ring-2">
-        <Textarea
-          data-testid="multimodal-input"
-          ref={textareaRef}
-          placeholder="Send a message..."
-          value={input}
-          onChange={handleInput}
-          className={cn(
-            "h-auto max-h-[calc(75dvh-4rem)] min-h-[48px] resize-none overflow-hidden border-0 bg-transparent px-4 py-3 !text-base shadow-none focus-visible:ring-0",
-            className,
-          )}
-          rows={2}
-          autoFocus
-          onKeyDown={(event) => {
-            if (
-              event.key === "Enter" &&
-              !event.shiftKey &&
-              !event.nativeEvent.isComposing
-            ) {
-              event.preventDefault();
+        <div className="flex flex-row items-center gap-2">
+          <Textarea
+            data-testid="multimodal-input"
+            ref={textareaRef}
+            placeholder="Send a message..."
+            value={input}
+            onChange={handleInput}
+            className={cn(
+              "h-auto max-h-[calc(75dvh-4rem)] min-h-[48px] resize-none overflow-hidden border-0 bg-transparent py-3 pr-0 pl-4 !text-base shadow-none focus-visible:ring-0",
+              className,
+            )}
+            rows={2}
+            autoFocus
+            onKeyDown={(event) => {
+              if (
+                event.key === "Enter" &&
+                !event.shiftKey &&
+                !event.nativeEvent.isComposing
+              ) {
+                event.preventDefault();
 
-              if (status === "streaming" || status === "submitted") {
-                toast.error(
-                  "Please wait for the model to finish its response!",
-                );
-              } else {
-                submitForm();
+                if (status === "streaming" || status === "submitted") {
+                  toast.error(
+                    "Please wait for the model to finish its response!",
+                  );
+                } else {
+                  submitForm();
+                }
               }
-            }
-          }}
-          disabled={!selectedChatModel}
-        />
+            }}
+            disabled={!selectedChatModel}
+          />
+          <SpeechToText />
+        </div>
 
         <div className="border-border/50 flex items-center justify-between border-t p-2">
           <div className="flex items-center gap-2">
@@ -465,7 +468,7 @@ const PureMultimodalInput: React.FC<Props> = ({
             <Credits />
           </div>
 
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
             {status === "submitted" ? (
               <StopButton stop={stop} setMessages={setMessages} />
             ) : (

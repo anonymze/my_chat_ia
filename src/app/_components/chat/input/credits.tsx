@@ -1,5 +1,4 @@
 import { getCreditsQuery } from "@/app/queries/credits-queries";
-import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
 
 export const Credits = () => {
