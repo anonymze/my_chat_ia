@@ -25,6 +25,7 @@ export default function SpeechToText({
     listening,
     browserSupportsSpeechRecognition,
     resetTranscript,
+    isMicrophoneAvailable,
   } = useSpeechRecognition();
 
   // Notify parent when transcript changes
