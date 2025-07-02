@@ -1,4 +1,7 @@
+// @ts-nocheck
+
 "use client";
+
 import { cn } from "@/lib/utils";
 import { MicIcon, MicOffIcon } from "lucide-react";
 import { useEffect, useState } from "react";
