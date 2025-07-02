@@ -25,6 +25,7 @@ import { useModelSelect } from "./use-model-select";
 
 import { useChatContext } from "@/app/_contexts/chat-context";
 import { cn } from "@/lib/utils";
+import { useEffect } from "react";
 import { NativeSearchToggle } from "./native-search-toggle";
 
 export const ModelSelect: React.FC = () => {
@@ -47,6 +48,21 @@ export const ModelSelect: React.FC = () => {
   const availableProviders = Array.from(
     new Set((models ?? []).map((model) => model.provider)),
   );
+
+  useEffect(() => {
+    handleModelSelect({
+      name: "O3 Mini",
+      modelId: "o3-mini",
+      description: "Next-generation reasoning model",
+      capabilities: [
+        LanguageModelCapability.Reasoning,
+        LanguageModelCapability.ToolCalling,
+      ],
+      bestFor: ["Advanced reasoning", "Complex problems", "Research"],
+      contextLength: 200000,
+      provider: "openai",
+    });
+  }, []);
 
   return (
     <>
@@ -161,7 +177,10 @@ export const ModelSelect: React.FC = () => {
                   "hover:bg-accent/50 flex w-full max-w-full cursor-pointer items-center gap-2 rounded-md px-3 py-2 transition-colors",
                   selectedChatModel?.modelId === model.modelId && "bg-accent",
                 )}
-                onClick={() => handleModelSelect(model)}
+                // defaultValue={}
+                onClick={() => {
+                  handleModelSelect(model);
+                }}
               >
                 {/* Name, provider, new badge stack */}
                 <div className="flex max-w-full min-w-0 flex-1 flex-shrink-0 items-center gap-2 overflow-hidden">

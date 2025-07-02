@@ -67,6 +67,7 @@ const PureMultimodalInput: React.FC<Props> = ({
     selectedChatModel,
     workbench,
   } = useChatContext();
+  const [resetSignal, setResetSignal] = useState(0);
 
   const utils = api.useUtils();
 
@@ -149,6 +150,8 @@ const PureMultimodalInput: React.FC<Props> = ({
   };
 
   const submitForm = useCallback(() => {
+    setResetSignal((s) => s + 1);
+    console.log("submitForm called");
     if (!selectedChatModel) {
       toast.error("Please select a model");
       return;
@@ -465,7 +468,8 @@ const PureMultimodalInput: React.FC<Props> = ({
           <div className="pr-2.5">
             <SpeechToText
               disabled={!selectedChatModel || !!submitDisabledString}
-              onTranscriptChange={onTranscriptChange}
+              action={onTranscriptChange}
+              resetSignal={resetSignal}
             />
           </div>
         </div>

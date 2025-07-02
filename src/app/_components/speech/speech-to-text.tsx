@@ -11,11 +11,13 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 
 export default function SpeechToText({
-  onTranscriptChange,
+  action,
   disabled,
+  resetSignal,
 }: {
-  onTranscriptChange: (transcript: string) => void;
+  action: (transcript: string) => void;
   disabled?: boolean;
+  resetSignal?: number;
 }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -30,10 +32,17 @@ export default function SpeechToText({
 
   // Notify parent when transcript changes
   useEffect(() => {
-    if (onTranscriptChange) {
-      onTranscriptChange(transcript);
+    if (action) {
+      action(transcript);
     }
-  }, [transcript, onTranscriptChange]);
+  }, [transcript, action]);
+
+  useEffect(() => {
+    if (resetSignal) {
+      resetTranscript();
+      SpeechRecognition.stopListening();
+    }
+  }, [resetSignal, resetTranscript]);
 
   if (!mounted || !browserSupportsSpeechRecognition) return null;
 
