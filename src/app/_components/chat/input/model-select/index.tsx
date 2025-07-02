@@ -62,7 +62,7 @@ export const ModelSelect: React.FC = () => {
       contextLength: 200000,
       provider: "openai",
     });
-  }, []);
+  }, [handleModelSelect]);
 
   return (
     <>
