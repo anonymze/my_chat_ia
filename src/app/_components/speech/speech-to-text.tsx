@@ -20,8 +20,12 @@ export default function SpeechToText({
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  const { transcript, listening, browserSupportsSpeechRecognition } =
-    useSpeechRecognition();
+  const {
+    transcript,
+    listening,
+    browserSupportsSpeechRecognition,
+    resetTranscript,
+  } = useSpeechRecognition();
 
   // Notify parent when transcript changes
   useEffect(() => {
@@ -34,7 +38,7 @@ export default function SpeechToText({
 
   return (
     <>
-      {!listening ? (
+      {!listening || !isMicrophoneAvailable ? (
         <MicOffIcon
           onClick={() => {
             if (disabled) return;
