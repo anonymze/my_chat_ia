@@ -235,6 +235,7 @@ const PureMultimodalInput: React.FC<Props> = ({
   const onTranscriptChange = useCallback(
     (transcript: string) => {
       setInput(transcript);
+      adjustHeight();
     },
     [setInput],
   );
