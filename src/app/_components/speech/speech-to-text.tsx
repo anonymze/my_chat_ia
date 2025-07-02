@@ -1,34 +1,56 @@
 "use client";
-
+import { cn } from "@/lib/utils";
+import { MicIcon, MicOffIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 
-const SpeechToText = () => {
+export default function SpeechToText({
+  onTranscriptChange,
+  disabled,
+}: {
+  onTranscriptChange: (transcript: string) => void;
+  disabled?: boolean;
+}) {
   const [mounted, setMounted] = useState(false);
-  const {
-    transcript,
-    listening,
-    resetTranscript,
-    browserSupportsSpeechRecognition,
-  } = useSpeechRecognition();
+  useEffect(() => setMounted(true), []);
 
+  const { transcript, listening, browserSupportsSpeechRecognition } =
+    useSpeechRecognition();
+
+  // Notify parent when transcript changes
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    if (onTranscriptChange) {
+      onTranscriptChange(transcript);
+    }
+  }, [transcript, onTranscriptChange]);
 
-  if (!mounted || !browserSupportsSpeechRecognition) return null; // Don't render until on client
+  if (!mounted || !browserSupportsSpeechRecognition) return null;
 
   return (
-    <div>
-      <p>Microphone: {listening ? "on" : "off"}</p>
-      <button onClick={SpeechRecognition.startListening}>Start</button>
-      <button onClick={SpeechRecognition.stopListening}>Stop</button>
-      <button onClick={resetTranscript}>Reset</button>
-      <p>{transcript}</p>
-    </div>
+    <>
+      {!listening ? (
+        <MicOffIcon
+          onClick={() => {
+            if (disabled) return;
+            SpeechRecognition.startListening({
+              continuous: true,
+              language: "fr-FR",
+              // interimResults: true,
+            });
+          }}
+          className={cn("h-8 w-8 p-1 py-1.5", disabled && "opacity-40")}
+        />
+      ) : (
+        <MicIcon
+          onClick={() => {
+            if (disabled) return;
+            SpeechRecognition.stopListening();
+          }}
+          className={cn("h-8 w-8 p-1 py-1.5", disabled && "opacity-40")}
+        />
+      )}
+    </>
   );
-};
-
-export default SpeechToText;
+}

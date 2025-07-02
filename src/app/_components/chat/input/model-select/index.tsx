@@ -1,25 +1,25 @@
 "use client";
 
-import { X, Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ModelProviderIcon } from "@/components/ui/model-icon";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { ModelProviderIcon } from "@/components/ui/model-icon";
 
+import { LanguageModelCapability } from "@/ai/types";
 import {
   capabilityColors,
   capabilityIcons,
   capabilityLabels,
   modelProviderNames,
 } from "./utils";
-import { LanguageModelCapability } from "@/ai/types";
 
 import { useModelSelect } from "./use-model-select";
 
@@ -78,8 +78,8 @@ export const ModelSelect: React.FC = () => {
               </>
             ) : (
               <>
-                <X className="mr-2 size-4" />
-                Select a model
+                <X className="mr-1 size-4" color="red" />
+                Model
               </>
             )}
           </Button>

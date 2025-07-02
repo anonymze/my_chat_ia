@@ -1,3 +1,7 @@
+import { LanguageModelCapability } from "@/ai/types";
+import { useChatContext } from "@/app/_contexts/chat-context";
+import { ToolkitIcons } from "@/components/toolkit/toolkit-icons";
+import { ToolkitList } from "@/components/toolkit/toolkit-list";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -8,21 +12,17 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import {
-  TooltipContent,
-  TooltipTrigger,
   Tooltip,
+  TooltipContent,
   TooltipProvider,
+  TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Loader2, Save, Wrench } from "lucide-react";
-import { useChatContext } from "@/app/_contexts/chat-context";
-import { useEffect, useState } from "react";
-import { ToolkitList } from "@/components/toolkit/toolkit-list";
-import { useRouter, useSearchParams } from "next/navigation";
-import { api } from "@/trpc/react";
-import { toast } from "sonner";
-import { ToolkitIcons } from "@/components/toolkit/toolkit-icons";
 import { clientToolkits } from "@/toolkits/toolkits/client";
-import { LanguageModelCapability } from "@/ai/types";
+import { api } from "@/trpc/react";
+import { Loader2, Save, Wrench } from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export const ToolsSelect = () => {
   const { toolkits, addToolkit, removeToolkit, workbench, selectedChatModel } =
@@ -79,7 +79,7 @@ export const ToolsSelect = () => {
               className="w-fit cursor-not-allowed justify-start bg-transparent opacity-50 md:w-auto md:px-2"
             >
               <Wrench />
-              <span className="hidden md:block">Add Toolkits</span>
+              <span className="hidden md:block">Toolkits</span>
             </Button>
           </TooltipTrigger>
           <TooltipContent>
@@ -111,7 +111,7 @@ export const ToolsSelect = () => {
             <span className="hidden md:block">
               {toolkits.length > 0
                 ? `${toolkits.length} Toolkit${toolkits.length > 1 ? "s" : ""}`
-                : "Add Toolkits"}
+                : "Toolkits"}
             </span>
           </Button>
         </DialogTrigger>

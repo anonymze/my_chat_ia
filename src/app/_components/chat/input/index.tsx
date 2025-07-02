@@ -232,6 +232,13 @@ const PureMultimodalInput: React.FC<Props> = ({
     [],
   );
 
+  const onTranscriptChange = useCallback(
+    (transcript: string) => {
+      setInput(transcript);
+    },
+    [setInput],
+  );
+
   const handleFileChange = useCallback(
     async (event: React.ChangeEvent<HTMLInputElement>) => {
       const files = Array.from(event.target.files ?? []);
@@ -454,7 +461,12 @@ const PureMultimodalInput: React.FC<Props> = ({
             }}
             disabled={!selectedChatModel}
           />
-          <SpeechToText />
+          <div className="pr-2.5">
+            <SpeechToText
+              disabled={!selectedChatModel || !!submitDisabledString}
+              onTranscriptChange={onTranscriptChange}
+            />
+          </div>
         </div>
 
         <div className="border-border/50 flex items-center justify-between border-t p-2">
