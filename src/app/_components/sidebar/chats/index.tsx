@@ -21,10 +21,10 @@ import {
 
 import { ChatItem } from "./item";
 
-import { api } from "@/trpc/react";
 import { useDeleteChat } from "@/app/_hooks/use-delete-chat";
 import { Button } from "@/components/ui/button";
-import { usePathname } from "next/navigation";
+import { api } from "@/trpc/react";
+import { usePathname, useRouter } from "next/navigation";
 
 export const NavChats = () => {
   return (
@@ -39,6 +39,7 @@ export const NavChats = () => {
 
 const NavChatsBody = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   const [, type, resourceId] = pathname.split("/");
 
@@ -73,6 +74,7 @@ const NavChatsBody = () => {
     if (deleteId) {
       deleteChat.mutate(deleteId);
       setShowDeleteDialog(false);
+                    router.replace("/");
     }
   };
 

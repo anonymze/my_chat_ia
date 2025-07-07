@@ -1,11 +1,6 @@
 import { memo } from "react";
 
-import {
-  SidebarMenuAction,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/components/ui/sidebar";
-import Link from "next/link";
+import { useUpdateChatVisibility } from "@/app/_hooks/use-chat-visibility";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,15 +12,20 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
+  SidebarMenuAction,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
+import {
   Check,
+  GitBranch,
   Globe,
   Lock,
   MoreHorizontal,
   Share,
   Trash,
-  GitBranch,
 } from "lucide-react";
-import { useUpdateChatVisibility } from "@/app/_hooks/use-chat-visibility";
+import Link from "next/link";
 
 import type { Chat } from "@prisma/client";
 

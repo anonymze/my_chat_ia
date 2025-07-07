@@ -293,3 +293,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Built with love for the T3 Cloneathon
+
+
+SUPPRIMER chat -> redirect new chat
+
+generer une image
+
+annuler generation  image
+
+GARDER EN MEMOIRE le dernier model utilisé
